@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gift Shop</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div align="center" id="mainWrapper">
+    
+    
+    <div id="pageHeader"><table width="100%" border="0" cellspacing="0" cellpadding="12">
+        <tr>
+            <td colspan="2"><a href="http://users.metropolia.fi/~hanad/homeExercise3/index.html">Home</a>&nbsp; &middot; &nbsp; <a href="#">Gift Gallary</a>
+                </tr>
+    </table>
+    </div>
+<br/>
+<br/>
+
+<div id="pageContent">
+
+<div class="ui-widget">
+<label for="tags">Your Gift: </label>
+<input id="tags">
+</div>
+
+<p>And which date you should like that?: <input type="text" id="datepicker"></p>
+<input id="upload" type="button" value="upload"/>
+
+<br/>
+<br/>
+
+<div id="pb"></div>
+
+<br/>
+<br/>
+    </div>
+
+<div id="pageFooter">Copyright | <a href="http://users.metropolia.fi/~hanad/homeExercise3/index.html">Home</a></div>
+</div>
+<script>
+    $(function() {
+      $( "#datepicker" ).datepicker();//function to pick a date
+      });
+//functon for autocomplet
+
+    $(function() {
+      var availableTags = [
+                           "Toy Car",
+                           "Magic Set",
+                           "Computer",
+                           "Candy",
+                           "Car",
+                           "Cube",
+                           "Video Game",
+                           "Doll",
+                           "Water Gun",
+                           "Ball",
+                           "Car Carrier",
+                           "Floor Puzzle",
+                           "Monster bowling",
+                           "Mini Golf",
+                           "Water Blocks",
+                           "Play Station",
+                           "Wire wall Letters",
+                           "Movie Ticket",
+                           "Voice Changer",
+                           "Head Phone",
+                           "Cap Cake Pillow",
+                           "Color Sensing Robot"
+                           ];
+      $( "#tags" ).autocomplete({
+                                source: availableTags
+                                });
+      });
+    //function to program what action is going to be done for the button press event
+    $("#upload").click(function() {
+                       var val = 0;
+                       var interval = setInterval(function(){
+                                                  val = val +1;
+                                                  $( "#pb" ).progressbar({value: val});
+                                                  if (val==100) {clearInterval(interval);
+                                                       alert("Done!");
+                                                  
+                                                  }
+                                                  }, 50);});
+                                                  
+                                                  
+                                                  
+                                                  
+    </script>
+
+
+</body>
+</html>
